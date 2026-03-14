@@ -1,0 +1,57 @@
+.prompt-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.prompt-tab {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.prompt-tab:hover {
+  color: #333;
+}
+
+.prompt-tab-active {
+  color: #0066ff;
+  border-bottom-color: #0066ff;
+}
+
+.prompt-textarea {
+  height: calc(85vh - 280px);
+  min-height: 200px;
+  font-family: 'SF Mono', 'Monaco', 'Menlo', 'Consolas', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  resize: none;
+}
+
+.prompt-loading {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.prompt-saved-tip {
+  font-size: 13px;
+  color: #16a34a;
+  margin-left: 12px;
+  animation: prompt-fade-in 0.2s ease;
+}
+
+@keyframes prompt-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
