@@ -47,6 +47,14 @@ dev:
 	wait
 
 web:
+	@if [ -z "$$LOCAL_MEMORY" ]; then \
+		echo "❌ LOCAL_MEMORY environment variable is not set. Please set it first."; \
+		echo "   Example: export LOCAL_MEMORY=/path/to/local_memory"; \
+		exit 1; \
+	fi; \
+	mkdir -p "$$LOCAL_MEMORY/workspace" "$$LOCAL_MEMORY/agent"; \
+	chmod 755 "$$LOCAL_MEMORY/workspace" "$$LOCAL_MEMORY/agent"; \
+	echo "✅ LOCAL_MEMORY directories ready: $$LOCAL_MEMORY/{workspace,agent}"
 	@echo "🚀 Starting web services..."
 	@backend_pid=$$(lsof -ti:$(BACKEND_PORT) 2>/dev/null); \
 	frontend_pid=$$(lsof -ti:$(FRONTEND_PORT) 2>/dev/null); \
